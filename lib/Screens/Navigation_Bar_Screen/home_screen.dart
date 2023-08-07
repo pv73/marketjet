@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketjet/Screens/Product_Screen/product_screen.dart';
 import 'package:marketjet/ui_helpher.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -149,111 +150,120 @@ class _Home_ScreenState extends State<Home_Screen> {
                         crossAxisSpacing: 10,
                         mainAxisExtent: 190),
                     itemBuilder: (context, speIndex) {
-                      return Stack(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: AppColor.GreyColor,
-                                borderRadius: BorderRadius.circular(8)),
-                            child: Column(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.only(top: 5),
-                                  height: 120,
-                                  width: 120,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(speProductList[speIndex]
-                                                  ['spe_Image']
-                                              .toString()),
-                                          fit: BoxFit.cover)),
-                                ),
-                                heightSpacer(),
-                                Container(
-                                  alignment: Alignment.topLeft,
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  child: Text(
-                                    speProductList[speIndex]['spe_Name'].toString(),
-                                    style:
-                                        mTextStyle16(mFontWeight: FontWeight.w600),
+                      return InkWell(
+                        onTap: () {
+                          print(speIndex);
+
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=> Product_Screen()),
+                          );
+                        },
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: AppColor.GreyColor,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5),
+                                    height: 120,
+                                    width: 120,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(speProductList[speIndex]
+                                                    ['spe_Image']
+                                                .toString()),
+                                            fit: BoxFit.cover)),
                                   ),
-                                ),
-                                heightSpacer(mHeight: 5),
-                                Container(
+                                  heightSpacer(),
+                                  Container(
                                     alignment: Alignment.topLeft,
                                     padding: EdgeInsets.symmetric(horizontal: 10),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(speProductList[speIndex]['spe_Prise']
-                                            .toString(),
-                                        style: TextStyle(fontWeight: FontWeight.w700),
-                                        ),
-
-                                        Container(
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                height: 12,
-                                                width: 12,
-                                                decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    color: Colors.red.shade800
-                                                ),
-                                              ),
-                                              widthSpacer(mWidth: 3),
-                                              Container(
-                                                height: 12,
-                                                width: 12,
-                                                decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    color: Colors.grey.shade800
-                                                ),
-                                              ),
-                                              widthSpacer(mWidth: 3),
-                                              Container(
-                                                height: 12,
-                                                width: 12,
-                                                decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    color: Colors.green.shade800
-                                                ),
-                                              ),
-                                              widthSpacer(mWidth: 3),
-                                              Container(
-                                                height: 12,
-                                                width: 12,
-                                                decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    color: Colors.blue.shade800
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        )
-                                      ],
+                                    child: Text(
+                                      speProductList[speIndex]['spe_Name'].toString(),
+                                      style:
+                                          mTextStyle16(mFontWeight: FontWeight.w600),
                                     ),
+                                  ),
+                                  heightSpacer(mHeight: 5),
+                                  Container(
+                                      alignment: Alignment.topLeft,
+                                      padding: EdgeInsets.symmetric(horizontal: 10),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(speProductList[speIndex]['spe_Prise']
+                                              .toString(),
+                                          style: TextStyle(fontWeight: FontWeight.w700),
+                                          ),
 
-                                )
-                              ],
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Container(
-                              height: 30,
-                              width: 30,
-                              decoration: BoxDecoration(
-                                color: AppColor.OrangeColor,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(5),
-                                  topRight: Radius.circular(15)
-                                ),
+                                          Container(
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  height: 12,
+                                                  width: 12,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(10),
+                                                      color: Colors.red.shade800
+                                                  ),
+                                                ),
+                                                widthSpacer(mWidth: 3),
+                                                Container(
+                                                  height: 12,
+                                                  width: 12,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(10),
+                                                      color: Colors.grey.shade800
+                                                  ),
+                                                ),
+                                                widthSpacer(mWidth: 3),
+                                                Container(
+                                                  height: 12,
+                                                  width: 12,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(10),
+                                                      color: Colors.green.shade800
+                                                  ),
+                                                ),
+                                                widthSpacer(mWidth: 3),
+                                                Container(
+                                                  height: 12,
+                                                  width: 12,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(10),
+                                                      color: Colors.blue.shade800
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+
+                                  )
+                                ],
                               ),
-                              child: Icon(Icons.favorite_border, color: AppColor.WhiteColor,size: 20),
                             ),
-                          )
-                        ],
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                  color: AppColor.OrangeColor,
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(5),
+                                    topRight: Radius.circular(10)
+                                  ),
+                                ),
+                                child: Icon(Icons.favorite_border, color: AppColor.WhiteColor,size: 20),
+                              ),
+                            )
+                          ],
+                        ),
                       );
                     },
                   ),
@@ -362,7 +372,7 @@ class _Home_ScreenState extends State<Home_Screen> {
   ];
 
   ///// Special Product List ////
-  final speProductList = [
+  List<Map<String, dynamic>> speProductList = [
     {
       'spe_Name': 'Shoes',
       'spe_Image': 'assets/image/product/product_1.png',
@@ -375,7 +385,8 @@ class _Home_ScreenState extends State<Home_Screen> {
     },
     {
       'spe_Name': 'HeadPhone',
-      'spe_Image': 'assets/image/product/product_3.png'
+      'spe_Image': 'assets/image/product/product_3.png',
+      'spe_Prise': 'INR 450'
     },
     {
       'spe_Name': "wireless Earbuds",
