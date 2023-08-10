@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketjet/Screens/List/special_product_list.dart';
 import 'package:marketjet/Screens/Product_Screen/product_screen.dart';
 import 'package:marketjet/ui_helpher.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -26,8 +27,8 @@ class _Home_ScreenState extends State<Home_Screen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      height: 45,
-                      width: 45,
+                      height: 40,
+                      width: 40,
                       padding: EdgeInsets.all(13),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
@@ -36,8 +37,8 @@ class _Home_ScreenState extends State<Home_Screen> {
                       child: Image.asset("assets/image/icons/ic_more.png"),
                     ),
                     Container(
-                      height: 45,
-                      width: 45,
+                      height: 40,
+                      width: 40,
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
@@ -155,7 +156,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                           print(speIndex);
 
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (context)=> Product_Screen()),
+                              MaterialPageRoute(builder: (context)=> Product_Screen(speIndex: speIndex)),
                           );
                         },
                         child: Stack(
@@ -354,59 +355,4 @@ class _Home_ScreenState extends State<Home_Screen> {
     "assets/image/slider/slider_4.jpg",
   ];
 
-  ///// Product List ////
-  final productList = [
-    {'proName': 'Shoes', 'proImage': 'assets/image/product/shoe.jpg'},
-    {'proName': 'Beauty', 'proImage': 'assets/image/product/makeup.jpg'},
-    {
-      'proName': "Women's \nFashion",
-      'proImage': 'assets/image/product/makeup.jpg'
-    },
-    {'proName': 'Jewelry', 'proImage': 'assets/image/product/jewellery.jpg'},
-    {
-      'proName': "Men's Fashion",
-      'proImage': 'assets/image/product/man_fasion.jpeg'
-    },
-    {'proName': 'Shirt', 'proImage': 'assets/image/product/shirt.jpg'},
-    {'proName': 'Fashion', 'proImage': 'assets/image/product/shoe_2.jpg'}
-  ];
-
-  ///// Special Product List ////
-  List<Map<String, dynamic>> speProductList = [
-    {
-      'spe_Name': 'Shoes',
-      'spe_Image': 'assets/image/product/product_1.png',
-      'spe_Prise': 'INR 200'
-    },
-    {
-      'spe_Name': "Shoes",
-      'spe_Image': 'assets/image/product/product_2.png',
-      'spe_Prise': 'INR 300'
-    },
-    {
-      'spe_Name': 'HeadPhone',
-      'spe_Image': 'assets/image/product/product_3.png',
-      'spe_Prise': 'INR 450'
-    },
-    {
-      'spe_Name': "wireless Earbuds",
-      'spe_Image': 'assets/image/product/product_4.png',
-      'spe_Prise': 'INR 250'
-    },
-    {
-      'spe_Name': 'wireless Earbuds',
-      'spe_Image': 'assets/image/product/product_5.png',
-      'spe_Prise': 'INR 500'
-    },
-    {
-      'spe_Name': 'Kids shirt',
-      'spe_Image': 'assets/image/product/product_6.png',
-      'spe_Prise': 'INR 600'
-    },
-    {
-      'spe_Name': 'Ladies Shirt',
-      'spe_Image': 'assets/image/product/product_7.png',
-      'spe_Prise': 'INR 280'
-    }
-  ];
 }
