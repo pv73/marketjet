@@ -4,6 +4,7 @@ import 'package:marketjet/Screens/Navigation_Bar_Screen/favorite_screen.dart';
 import 'package:marketjet/Screens/Navigation_Bar_Screen/home_screen.dart';
 import 'package:marketjet/Screens/Navigation_Bar_Screen/more_screen.dart';
 import 'package:marketjet/Screens/Navigation_Bar_Screen/profile_screen.dart';
+import 'package:marketjet/firebase/firebase_provider.dart';
 import 'package:marketjet/ui_helpher.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
@@ -24,6 +25,11 @@ class _Home_PageState extends State<Home_Page> {
     Cart_Screen(),
     Profile_Screen()
   ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

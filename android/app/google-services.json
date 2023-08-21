@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "983840515364",
+    "project_id": "weardo-360c0",
+    "storage_bucket": "weardo-360c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983840515364:android:6025b78cc1951a7697ffb1",
+        "android_client_info": {
+          "package_name": "com.example.marketjet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983840515364-r35b9jat45gabq0tu6eouoake2gdhhl8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBii_KbqEUQ-kOW9NXKzzUzIpJLVIglmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983840515364-r35b9jat45gabq0tu6eouoake2gdhhl8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "983840515364-61bmfjaoriequ64dl5sb6mcavi4ocv1n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.weardo103"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983840515364:android:a06f737504c4ca4c97ffb1",
+        "android_client_info": {
+          "package_name": "com.example.weardo_103"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983840515364-r35b9jat45gabq0tu6eouoake2gdhhl8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBii_KbqEUQ-kOW9NXKzzUzIpJLVIglmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983840515364-r35b9jat45gabq0tu6eouoake2gdhhl8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "983840515364-61bmfjaoriequ64dl5sb6mcavi4ocv1n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.weardo103"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
