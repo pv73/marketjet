@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:marketjet/models/order_detail_model.dart';
 import 'package:marketjet/models/product_model.dart';
 
 import '../models/cart_model.dart';
@@ -55,11 +56,41 @@ class FirebaseProvider {
     return products.where('product_id', isEqualTo: productId).snapshots();
   }
 
+  Stream<QuerySnapshot<Map<String, dynamic>>> getUserCart(String userId) {
+    return firestore
+        .collection(userCollection)
+        .doc(userId)
+        .collection("mycart").snapshots();
+  }
+
   addToCart(String userId, CartModel cartModel) {
     firestore
         .collection(userCollection)
         .doc(userId)
         .collection("mycart")
         .add(cartModel.toMap());
+  }
+
+  clearCart(String userId) {
+    firestore
+        .collection(userCollection)
+        .doc(userId)
+        .collection("mycart").get().then((value) {
+      for (DocumentSnapshot ds in value.docs){
+        ds.reference.delete();
+      };
+    });
+  }
+
+  placeOrder(String userId, OrderDetailModel myOrder) {
+    firestore
+        .collection(userCollection)
+        .doc(userId)
+        .collection("myOrder")
+        .add(myOrder.toMap());
+
+    firestore
+        .collection("allOrders")
+        .add(myOrder.toMap()).then((value) => clearCart(userId));
   }
 }

@@ -193,147 +193,144 @@ class _Home_ScreenState extends State<Home_Screen> {
                 ),
 
                 heightSpacer(mHeight: 15),
-                Container(
-                  height: MediaQuery.of(context).size.height * 1,
-                  // color: Colors.red,
-                  child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-                    stream: productStream,
-                    builder: (context, snapshot) {
+                StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                  stream: productStream,
+                  builder: (context, snapshot) {
 
-                      if(snapshot.hasData){
-                        List<ProductModel> listProduct = [];
+                    if(snapshot.hasData){
+                      List<ProductModel> listProduct = [];
 
-                        for(DocumentSnapshot doc in snapshot.data!.docs){
-                          listProduct.add(ProductModel.fromMap(doc.data() as Map<String, dynamic>));
-                        }
+                      for(DocumentSnapshot doc in snapshot.data!.docs){
+                        listProduct.add(ProductModel.fromMap(doc.data() as Map<String, dynamic>));
+                      }
 
-                          return GridView.builder(
-                            itemCount: listProduct.length,
-                            physics: NeverScrollableScrollPhysics(),
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                mainAxisSpacing: 10,
-                                crossAxisSpacing: 10,
-                                mainAxisExtent: 190),
-                            itemBuilder: (context, speIndex) {
-                              return InkWell(
-                                onTap: () {
-                                  print(speIndex);
+                        return GridView.builder(
+                          shrinkWrap: true,
+                          itemCount: listProduct.length,
+                          physics: NeverScrollableScrollPhysics(),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 10,
+                              crossAxisSpacing: 10,
+                              mainAxisExtent: 190),
+                          itemBuilder: (context, speIndex) {
+                            return InkWell(
+                              onTap: () {
+                                print(speIndex);
 
-                                  Navigator.push(context,
-                                    MaterialPageRoute(builder: (context)=> Product_Screen(speIndex: speIndex, productId: listProduct[speIndex].product_id,)),
-                                  );
-                                },
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: AppColor.GreyColor,
-                                          borderRadius: BorderRadius.circular(8)),
-                                      child: Column(
-                                        children: [
-                                          Container(
-                                            margin: EdgeInsets.only(top: 5),
-                                            height: 120,
-                                            width: 120,
-                                            decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: NetworkImage(listProduct[speIndex].images[0]),
-                                                    fit: BoxFit.cover)),
-                                          ),
-                                          heightSpacer(),
-                                          Container(
-                                            alignment: Alignment.topLeft,
-                                            padding: EdgeInsets.symmetric(horizontal: 10),
-                                            child: Text(
-                                              listProduct[speIndex].name,
-                                              style:
-                                              mTextStyle16(mFontWeight: FontWeight.w600),
-                                            ),
-                                          ),
-                                          heightSpacer(mHeight: 5),
-                                          Container(
-                                            alignment: Alignment.topLeft,
-                                            padding: EdgeInsets.symmetric(horizontal: 10),
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text(listProduct[speIndex].price,
-                                                  style: TextStyle(fontWeight: FontWeight.w700),
-                                                ),
-
-                                                Container(
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        height: 12,
-                                                        width: 12,
-                                                        decoration: BoxDecoration(
-                                                            borderRadius: BorderRadius.circular(10),
-                                                            color: Colors.red.shade800
-                                                        ),
-                                                      ),
-                                                      widthSpacer(mWidth: 3),
-                                                      Container(
-                                                        height: 12,
-                                                        width: 12,
-                                                        decoration: BoxDecoration(
-                                                            borderRadius: BorderRadius.circular(10),
-                                                            color: Colors.grey.shade800
-                                                        ),
-                                                      ),
-                                                      widthSpacer(mWidth: 3),
-                                                      Container(
-                                                        height: 12,
-                                                        width: 12,
-                                                        decoration: BoxDecoration(
-                                                            borderRadius: BorderRadius.circular(10),
-                                                            color: Colors.green.shade800
-                                                        ),
-                                                      ),
-                                                      widthSpacer(mWidth: 3),
-                                                      Container(
-                                                        height: 12,
-                                                        width: 12,
-                                                        decoration: BoxDecoration(
-                                                            borderRadius: BorderRadius.circular(10),
-                                                            color: Colors.blue.shade800
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: Alignment.topRight,
-                                      child: Container(
-                                        height: 30,
-                                        width: 30,
-                                        decoration: BoxDecoration(
-                                          color: AppColor.OrangeColor,
-                                          borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(5),
-                                              topRight: Radius.circular(10)
+                                Navigator.push(context,
+                                  MaterialPageRoute(builder: (context)=> Product_Screen(speIndex: speIndex, productId: listProduct[speIndex].product_id,)),
+                                );
+                              },
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: AppColor.GreyColor,
+                                        borderRadius: BorderRadius.circular(8)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.only(top: 5),
+                                          height: 120,
+                                          width: 120,
+                                          decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  image: NetworkImage(listProduct[speIndex].images[0]),
+                                                  fit: BoxFit.cover)),
+                                        ),
+                                        heightSpacer(),
+                                        Container(
+                                          alignment: Alignment.topLeft,
+                                          padding: EdgeInsets.symmetric(horizontal: 10),
+                                          child: Text(
+                                            listProduct[speIndex].name,
+                                            style:
+                                            mTextStyle16(mFontWeight: FontWeight.w600),
                                           ),
                                         ),
-                                        child: Icon(Icons.favorite_border, color: AppColor.WhiteColor,size: 20),
+                                        heightSpacer(mHeight: 5),
+                                        Container(
+                                          alignment: Alignment.topLeft,
+                                          padding: EdgeInsets.symmetric(horizontal: 10),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(listProduct[speIndex].price,
+                                                style: TextStyle(fontWeight: FontWeight.w700),
+                                              ),
+
+                                              Container(
+                                                child: Row(
+                                                  children: [
+                                                    Container(
+                                                      height: 12,
+                                                      width: 12,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius: BorderRadius.circular(10),
+                                                          color: Colors.red.shade800
+                                                      ),
+                                                    ),
+                                                    widthSpacer(mWidth: 3),
+                                                    Container(
+                                                      height: 12,
+                                                      width: 12,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius: BorderRadius.circular(10),
+                                                          color: Colors.grey.shade800
+                                                      ),
+                                                    ),
+                                                    widthSpacer(mWidth: 3),
+                                                    Container(
+                                                      height: 12,
+                                                      width: 12,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius: BorderRadius.circular(10),
+                                                          color: Colors.green.shade800
+                                                      ),
+                                                    ),
+                                                    widthSpacer(mWidth: 3),
+                                                    Container(
+                                                      height: 12,
+                                                      width: 12,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius: BorderRadius.circular(10),
+                                                          color: Colors.blue.shade800
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              )
+                                            ],
+                                          ),
+
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: Container(
+                                      height: 30,
+                                      width: 30,
+                                      decoration: BoxDecoration(
+                                        color: AppColor.OrangeColor,
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(5),
+                                            topRight: Radius.circular(10)
+                                        ),
                                       ),
-                                    )
-                                  ],
-                                ),
-                              );
-                            },
-                          );
-                      }
-                      return Center(child: CircularProgressIndicator(color: AppColor.OrangeColor),);
+                                      child: Icon(Icons.favorite_border, color: AppColor.WhiteColor,size: 20),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            );
+                          },
+                        );
                     }
-                  ),
+                    return Center(child: CircularProgressIndicator(color: AppColor.OrangeColor),);
+                  }
                 )
               ],
             ),
